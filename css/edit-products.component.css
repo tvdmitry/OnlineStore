@@ -1,0 +1,34 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.link {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .link {
+    margin-bottom: 20px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: -60px;
+  left: 900px;
+  background: rgba(6, 150, 66, 0.534);
+}
+
+.product-update {
+  max-width: 400px;
+  color: black;
+  text-align: center;
+}

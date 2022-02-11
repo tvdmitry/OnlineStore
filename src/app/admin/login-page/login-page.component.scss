@@ -1,0 +1,15 @@
+form {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.login {
+	@media (max-width: 400px) {
+		font-size: 20px;
+	}
+}
+
+.alert-info {
+	background: rgb(214, 9, 9);
+	color: white;
+}

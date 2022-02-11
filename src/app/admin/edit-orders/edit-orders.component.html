@@ -1,0 +1,25 @@
+<div class="container">
+  <li routerLinkActive="active">
+    <a
+      class="py-2 d-md-inline-block link"
+      [routerLink]="['/admin', 'shared-order']"
+      >Назад</a
+    >
+  </li>
+
+  <ul>
+    <li class="block-my-order col-lg-auto" *ngFor="let product of products">
+      <p class="order-name">{{ product.name }}</p>
+      <p class="img-order">
+        <a href="#"> <img class="img-fluid" src="{{ product.img }}" /> </a>
+      </p>
+      <p class="text-primary order-price">{{ product.price }} &#8381;</p>
+      <p class="order-description">{{ product.description }}</p>
+      <span class="order-amount">{{ product.amount }} шт</span>
+    </li>
+
+    <div *ngIf="products.length > 0">
+      <h4 class="text-primary order-total">Итого: {{ total }}</h4>
+    </div>
+  </ul>
+</div>

@@ -1,0 +1,25 @@
+.link {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .link {
+    margin-bottom: 20px;
+  }
+}
+
+.add-to-cart {
+  display: none;
+}
+
+.active {
+  display: inline-block;
+  color: white;
+  position: absolute;
+  left: 11px;
+}
+
+.cart {
+  position: relative;
+  cursor: pointer;
+}

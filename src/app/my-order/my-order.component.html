@@ -1,0 +1,32 @@
+<div *ngIf="submited">
+  <div class="container">
+    <div *ngIf="orders.length; else loading">
+      <table class="table table-hover table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>Имя заказчика</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>
+              {{ order["client"].firstName }} {{ order["client"].lastName }}
+            </td>
+            <td>
+              <button
+                class="btn-primary btn open-order"
+                [routerLink]="['/', 'orders', order.id, 'completed']"
+              >
+                Открыть
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <h4 class="text-center">Нет оформленных заказов заказов</h4>
+  </ng-template>
+</div>

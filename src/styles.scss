@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+
+
+.link {
+	text-decoration: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.card {
+	padding: 1rem;
+	border: #ccc 1px dotted;
+	margin: 0.7rem 0;
+ 
+	&-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
+ 
+	&-content {
+	  margin-bottom: .5rem;
+	}
+ }
+
+ .label1 {
+	 margin-right: 25px;
+ }
+
+ .label2 {
+	margin-right: 10px;
+}
+
+.form-control {
+	display: block;
+	color: #888;
+	margin-bottom: 20px;
+ 
+	&.invalid {
+	  color: red;
+	  input {
+		 border-color: red;
+	  }
+	}
+ 
+	.validation {
+	  color: red;
+	}
+ }
+
+ 
+ 

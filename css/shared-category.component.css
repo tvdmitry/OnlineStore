@@ -1,0 +1,41 @@
+.open-category {
+  margin: 0px 15px 20px 0;
+}
+
+.link {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .link {
+    margin-right: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: -60px;
+  left: 900px;
+  background: rgba(6, 150, 66, 0.534);
+}
+
+.category-delete {
+  max-width: 400px;
+  color: black;
+  text-align: center;
+}

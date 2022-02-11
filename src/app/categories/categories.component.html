@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="dropdown">
+    <a
+      class="btn btn-secondary dropdown-toggle bg-primary text-white category"
+      role="button"
+      id="dropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Категории
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li *ngFor="let category of categories">
+        <a
+          class="link dropdown-item"
+          [routerLink]="['/categories', category.id]"
+          >{{ category.name }}</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <section class="row">
+    <div class="product-block" *ngFor="let product of products">
+      <ul>
+        <li>
+          <p class="product-name">{{ product.name }}</p>
+          <p class="img-product">
+            <a> <img class="img-fluid" src="{{ product.img }}" /> </a>
+          </p>
+          <p class="text-primary product-price">{{ product.price }} &#8381;</p>
+          <p class="product-description">{{ product.description }}</p>
+          <p class="product-amount">Количество: {{ product.amount }}</p>
+          <div class="product-btn">
+            <button
+              (click)="cartService.decrease(product)"
+              type="submit"
+              class="form__btn btn btn-primary"
+              data-action="minus"
+            >
+              -
+            </button>
+            <span class="amount">{{ product.amount }} шт</span>
+            <button
+              (click)="cartService.increase(product)"
+              type="submit"
+              class="form__btn btn btn-primary"
+              data-action="plus"
+            >
+              +
+            </button>
+            <button
+              (click)="addClass()"
+              (click)="addToCart(product)"
+              (click)="submit()"
+              type="submit"
+              class="form__btn btn btn-primary add-cart"
+            >
+              В корзину
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="modal-dialog" *ngIf="textAlert">
+    <div
+      class="modal-body"
+      [ngClass]="{
+        'add-to-cart': state === 'toggle'
+      }"
+    >
+      <p>{{ textAlert }}</p>
+    </div>
+  </div>
+</div>

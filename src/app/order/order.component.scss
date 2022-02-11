@@ -1,0 +1,15 @@
+form {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.push-checkout {
+	margin: 0 20px 0 0;
+}
+
+.cancel-order {
+	@media (max-width: 450px) {
+		display: block;
+		margin-top: 20px;
+	}
+}

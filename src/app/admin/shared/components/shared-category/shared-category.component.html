@@ -1,0 +1,76 @@
+<div class="container">
+  <ul class="block-link">
+    <li routerLinkActive="active">
+      <a
+        class="py-2 d-md-inline-block link"
+        [routerLink]="['/admin', 'dashboard']"
+        >На главную</a
+      >
+    </li>
+
+    <li routerLinkActive="active">
+      <a
+        class="py-2 d-md-inline-block link"
+        [routerLink]="['/admin', 'create-category']"
+        >Создать категорию</a
+      >
+    </li>
+  </ul>
+
+  <div *ngIf="categories.length; else loading">
+    <div>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Найти категорию..."
+        [(ngModel)]="searchStr"
+      />
+    </div>
+
+    <table class="table table-hover table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Название категории</th>
+          <th>Описание категории</th>
+          <th>ID категории</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories | searchCategory: searchStr">
+          <td>{{ category.name }}</td>
+          <td>{{ category.description }}</td>
+          <td>{{ category.id }}</td>
+          <td>
+            <button
+              class="btn-primary btn open-category"
+              [routerLink]="['/admin', 'categories', category.id, 'edit']"
+            >
+              Открыть
+            </button>
+            <a
+              class="btn-primary btn open-category"
+              (click)="remove(category.id)"
+              (click)="removeCategory()"
+              >Удалить</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal-dialog" *ngIf="textDeleteCategory">
+    <div
+      class="modal-body"
+      [ngClass]="{
+        'category-delete': categoryDelete === 'categoryDelete'
+      }"
+    >
+      <p>{{ textDeleteCategory }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <h4 class="text-center">Нет созданных категорий</h4>
+</ng-template>

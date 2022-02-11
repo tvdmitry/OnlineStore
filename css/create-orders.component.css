@@ -1,0 +1,17 @@
+form {
+  max-width: 600px;
+  margin: 0  auto;
+}
+
+.link {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .link {
+    margin-bottom: 20px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}

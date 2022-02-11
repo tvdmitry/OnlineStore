@@ -1,0 +1,37 @@
+.order-name {
+  color: black;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.order-price {
+  font-weight: 900;
+  text-align: center;
+}
+
+.order-total {
+  font-weight: 900;
+}
+
+.order-description {
+  font-weight: 700;
+  text-align: center;
+}
+
+.order-amount {
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.block-my-order {
+  margin: 0 0 20px 0;
+  border: 2px solid #c1cad4;
+  max-width: 350px;
+}
+
+.order-img {
+  text-align: center;
+}

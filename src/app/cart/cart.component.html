@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="cart-block"
+      *ngFor="let cart of this.cartService.cart; let i = index"
+    >
+      <ul class="cart">
+        <li class="block-cart">
+          <p class="cart-name">{{ cart.name }}</p>
+          <p class="cart-img">
+            <a href="#"> <img class="img-fluid" src="{{ cart.img }}" /> </a>
+          </p>
+          <p class="text-primary cart-price">{{ cart.price }} &#8381;</p>
+          <p class="cart-description">{{ cart.description }}</p>
+          <span class="cart-amount">{{ cart.amount }} шт</span>
+          <div class="cart-btn">
+            <button
+              class="btn-primary btn"
+              (click)="removeClass()"
+              (click)="cartService.calcClearItem(cart)"
+              (click)="deleteCartItem(cart.id)"
+            >
+              Удалить
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="this.cartService.cart.length > 0">
+      <h4 class="text-primary cart-total">
+        Итого: {{ cartService.totalPrice }}
+      </h4>
+      <button class="btn-primary btn checkout" [routerLink]="['/order']">
+        Оформить заказ
+      </button>
+      <button
+        class="btn-primary btn"
+        (click)="clearCartModal()"
+        (click)="cartService.calcClear()"
+        (click)="clearCart()"
+      >
+        Очистить корзину
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-dialog" *ngIf="textDelete">
+    <div
+      class="modal-body"
+      [ngClass]="{
+        'delete-modal': stat === 'delete'
+      }"
+    >
+      <p>{{ textDelete }}</p>
+    </div>
+  </div>
+
+  <div class="modal-dialog" *ngIf="textAboutClear">
+    <div
+      class="modal-body"
+      [ngClass]="{
+        'delete-modal-cart': clear === 'clear'
+      }"
+    >
+      <p>{{ textAboutClear }}</p>
+    </div>
+  </div>
+</div>

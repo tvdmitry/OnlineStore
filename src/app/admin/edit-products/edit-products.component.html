@@ -1,0 +1,126 @@
+<div class="container">
+  <li routerLinkActive="active">
+    <a
+      class="py-2 d-md-inline-block link"
+      [routerLink]="['/admin', 'shared-products']"
+      >Назад</a
+    >
+  </li>
+
+  <div *ngIf="form; else loading">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div
+        class="form-control form-group"
+        [ngClass]="{ invalid: name().invalid && name().touched }"
+      >
+        <label for="name">Название товара:</label>
+        <input
+          class="form-control"
+          id="name"
+          type="text"
+          formControlName="name"
+        />
+        <div
+          *ngIf="name().invalid && (name().touched || name().dirty)"
+          class="validation"
+        >
+          <small class="form-text text-muted" *ngIf="name().errors?.required"
+            >Введите имя товара</small
+          >
+        </div>
+      </div>
+
+      <div
+        class="form-control form-group"
+        [ngClass]="{ invalid: price().invalid && price().touched }"
+      >
+        <label for="price">Цена товара:</label>
+        <input
+          class="form-control"
+          id="price"
+          type="text"
+          formControlName="price"
+        />
+        <div
+          *ngIf="price().invalid && (price().touched || price().dirty)"
+          class="validation"
+        >
+          <small class="form-text text-muted" *ngIf="price().errors?.required"
+            >Введите цену товара</small
+          >
+        </div>
+      </div>
+
+      <div
+        class="form-control form-group"
+        [ngClass]="{ invalid: description().invalid && description().touched }"
+      >
+        <label for="description">Описание товара:</label>
+        <input
+          class="form-control"
+          id="description"
+          type="text"
+          formControlName="description"
+        />
+        <div
+          *ngIf="
+            description().invalid &&
+            (description().touched || description().dirty)
+          "
+          class="validation"
+        >
+          <small
+            class="form-text text-muted"
+            *ngIf="description().errors?.required"
+            >Введите описание товара</small
+          >
+        </div>
+      </div>
+
+      <div
+        class="form-control form-group"
+        [ngClass]="{ invalid: amount().invalid && amount().touched }"
+      >
+        <label for="amount">Количество в шт: </label>
+        <input
+          class="form-control"
+          id="amount"
+          type="text"
+          formControlName="amount"
+        />
+        <div
+          *ngIf="amount().invalid && (amount().touched || amount().dirty)"
+          class="validation"
+        >
+          <small class="form-text text-muted" *ngIf="amount().errors?.required"
+            >Введите количество в шт</small
+          >
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        (click)="updateProducts()"
+        class="btn btn-primary"
+        [disabled]="form.invalid || submited"
+      >
+        Обновить
+      </button>
+    </form>
+
+    <div class="modal-dialog" *ngIf="textEditProduct">
+      <div
+        class="modal-body"
+        [ngClass]="{
+          'product-update': productUpdate === 'productUpdate'
+        }"
+      >
+        <p>{{ textEditProduct }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Идет загрузка...</p>
+</ng-template>

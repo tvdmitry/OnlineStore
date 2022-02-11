@@ -1,0 +1,32 @@
+form {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.create-category {
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
+
+	@media (max-width: 520px) {
+		font-size: 18px;
+	}
+}
+
+.link {
+	white-space: nowrap;
+	@media (max-width: 768px) {
+		margin-bottom: 10px;
+		display: inline-flex;
+	}
+}
+
+.container {
+	position: relative;
+}
+
+.modal-dialog {
+	position: absolute;
+	top: -60px;
+	left: 850px;
+}

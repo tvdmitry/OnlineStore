@@ -1,0 +1,68 @@
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <h4 class="login">Вход в панель администратора</h4>
+  <div class="alert alert-info" *ngIf="auth.textErrorPassword">
+    {{ auth.textErrorPassword }}
+  </div>
+
+  <div class="alert alert-info" *ngIf="auth.textErrorEmail">
+    {{ auth.textErrorEmail }}
+  </div>
+
+  <div
+    class="form-control form-group"
+    [ngClass]="{ invalid: email().invalid && email().touched }"
+  >
+    <label for="email" class="label1">Email: </label>
+    <input
+      class="form-control"
+      id="email"
+      type="email"
+      formControlName="email"
+    />
+    <div
+      *ngIf="email().invalid && (email().touched || email().dirty)"
+      class="validation"
+    >
+      <small class="form-text text-muted" *ngIf="email().errors?.required"
+        >Введите поле email</small
+      >
+      <small class="form-text text-muted" *ngIf="email().errors?.email"
+        >Введите корректный email</small
+      >
+    </div>
+  </div>
+
+  <div
+    class="form-control form-group"
+    [ngClass]="{ invalid: password().invalid && password().touched }"
+  >
+    <label for="password" class="label2">Пароль:</label>
+    <input
+      class="form-control"
+      id="password"
+      type="password"
+      formControlName="password"
+    />
+    <div
+      *ngIf="password().invalid && (password().touched || password().dirty)"
+      class="validation"
+    >
+      <small class="form-text text-muted" *ngIf="password().errors?.required"
+        >Введите пароль</small
+      >
+      <small class="form-text text-muted" *ngIf="password().errors?.minlength">
+        Пароль должен быть не менее
+        {{ password().errors?.minlength.requiredLength }} символов. Сейчас он
+        {{ password().errors?.minlength.actualLength }} символа
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="myForm.invalid || submited"
+  >
+    Войти
+  </button>
+</form>

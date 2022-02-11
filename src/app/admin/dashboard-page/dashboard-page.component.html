@@ -1,0 +1,34 @@
+<div class="container">
+  <nav>
+    <ul
+      class="d-flex flex-column flex-md-row justify-content-between dashboard"
+    >
+      <li class="dashboard-link" routerLinkActive="active">
+        <a
+          class="py-2 d-md-inline-block link"
+          [routerLink]="['/admin', 'shared-category']"
+          >Просмотр категорий</a
+        >
+      </li>
+      <li class="dashboard-link" routerLinkActive="active">
+        <a
+          class="py-2 d-md-inline-block link"
+          [routerLink]="['/admin', 'shared-products']"
+          >Просмотр товаров</a
+        >
+      </li>
+      <li class="dashboard-link" routerLinkActive="active">
+        <a
+          class="py-2 d-md-inline-block link"
+          [routerLink]="['/admin', 'shared-order']"
+          >Просмотр заказов</a
+        >
+      </li>
+      <li class="dashboard-link">
+        <a class="py-2 d-md-inline-block link" href="#" (click)="logout($event)"
+          >Выйти</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>

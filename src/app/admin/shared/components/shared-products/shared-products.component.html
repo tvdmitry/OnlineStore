@@ -1,0 +1,81 @@
+<div class="container">
+  <ul class="block-link">
+    <li routerLinkActive="active">
+      <a
+        class="py-2 d-md-inline-block link"
+        [routerLink]="['/admin', 'dashboard']"
+        >На главную</a
+      >
+    </li>
+
+    <li routerLinkActive="active">
+      <a
+        class="py-2 d-md-inline-block link"
+        [routerLink]="['/admin', 'create-products']"
+        >Создать товар</a
+      >
+    </li>
+  </ul>
+
+  <div *ngIf="products.length; else loading">
+    <div>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Найти товар..."
+        [(ngModel)]="searchStr"
+      />
+    </div>
+
+    <table class="table table-hover table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Название товара</th>
+          <th>Цена товара</th>
+          <th>Описание товара</th>
+          <th>ID товара</th>
+          <th>Category ID товара</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | searchCategory: searchStr">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }} &#8381;</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.id }}</td>
+          <td>{{ product.categoryId }}</td>
+          <td>
+            <button
+              class="btn-primary btn open-product"
+              [routerLink]="['/admin', 'products', product.id, 'edit']"
+            >
+              Открыть
+            </button>
+            <button
+              class="btn-primary btn delete-product"
+              (click)="remove(product.id)"
+              (click)="removeProduct()"
+            >
+              Удалить
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal-dialog" *ngIf="textDeleteProduct">
+      <div
+        class="modal-body"
+        [ngClass]="{
+          'product-delete': productDelete === 'productDelete'
+        }"
+      >
+        <p>{{ textDeleteProduct }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <h4>Нет созданных товаров</h4>
+</ng-template>

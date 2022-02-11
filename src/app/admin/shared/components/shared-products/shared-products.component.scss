@@ -1,0 +1,38 @@
+.open-product {
+	margin-bottom: 10px;
+}
+
+.delete-product {
+	margin-bottom: 20px;
+}
+
+.block-link {
+	@media (max-width: 768px) {
+		display: inline-flex;
+		justify-content: space-between;
+	}
+}
+
+.link {
+	white-space: nowrap;
+	@media (max-width: 768px) {
+		margin-right: 45px;
+	}
+}
+
+.container {
+	position: relative;
+}
+
+.modal-dialog {
+	position: absolute;
+	top: -60px;
+	left: 900px;
+	background: rgba(6, 150, 66, 0.534);
+}
+
+.product-delete {
+	max-width: 400px;
+	color: black;
+	text-align: center;
+}
