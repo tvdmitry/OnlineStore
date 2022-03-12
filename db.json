@@ -68,41 +68,6 @@
     }
   ],
   "client": [
-    {
-      "firstName": "Дмитрий",
-      "lastName": "Тулупов",
-      "address": "ул. Новая, д 1",
-      "phone": "+79004916527",
-      "id": 1
-    },
-    {
-      "firstName": "Дмитр",
-      "lastName": "Тулупов",
-      "address": "ул. Новая, д 1",
-      "phone": "+79004916527",
-      "id": 2
-    },
-    {
-      "firstName": "634",
-      "lastName": "6436",
-      "address": "6346",
-      "phone": "63463",
-      "id": 3
-    },
-    {
-      "firstName": "Дмитрий",
-      "lastName": "Тулупов",
-      "address": "ул. Новая, д 1",
-      "phone": "+79004916527",
-      "id": 4
-    },
-    {
-      "firstName": "Дмитрий",
-      "lastName": "Тулупов",
-      "address": "ул. Новая, д 1",
-      "phone": "+79004916527",
-      "id": 5
-    }
   ],
   "orders": []
 }
