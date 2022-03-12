@@ -5,3 +5,4 @@
 4. json-server-auth -p 3001 С:\Имя пользователя\Имя ПК\Desktop\dbauth.json 
 5. json-server --watch С:\Имя пользователя\Имя ПК\Desktop\db.json
 6. npm start
+7. Чтобы войти в панель администратора в домене нужно прописать /admin
